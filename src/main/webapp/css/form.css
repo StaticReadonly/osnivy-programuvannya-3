@@ -1,0 +1,102 @@
+body{
+    margin: 0;
+    padding: 0 20px 0 20px;
+}
+
+*{
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+div, img, table, form, input, button, thead, tr, td, th{
+    display: flex;
+}
+
+.main-container{
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+}
+
+.image-container{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+
+.image-container > img{
+    height: 100%;
+}
+
+.calculator-container{
+    flex-direction: column;
+    gap: 4px;
+    align-items: stretch;
+}
+
+.calculator-field{
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+}
+
+.calculator-field-from, .calculator-field-to, .calculator-field-step{
+    flex-direction: row-reverse;
+}
+
+.calculator-field-from, .calculator-field-to, .calculator-field-step{
+    width: 8%;
+}
+
+.calculator-field-name{
+    width: 4%;
+}
+
+.calculator-field-input-from, .calculator-field-input-to, .calculator-field-input-step{
+    width: 24%;
+}
+
+.calculator-field-submit{
+    justify-content: center;
+}
+
+.calculator-submit-button{
+    height: 40px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.results-container{
+    flex-direction: column;
+    align-items: stretch;
+}
+
+table{
+    border: 2px solid black;
+    border-radius: 6px;
+}
+
+table, thead{
+    flex-direction: column;
+    align-items: stretch;
+}
+
+tr{
+    flex-direction: row;
+}
+
+table td + td, table th + th {
+    border-left: 2px solid black;
+}
+
+table tr + tr, table thead + tbody{
+    border-top: 2px solid black;
+}
+
+th, td{
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+}
