@@ -29,6 +29,52 @@
     String to_d = "0";
     String step_d = "0";
 
+    Cookie[] cookies = request.getCookies();
+    if (cookies != null) {
+        for (Cookie cookie : cookies) {
+            switch (cookie.getName()) {
+                case "from_a":
+                    from_a = cookie.getValue();
+                    break;
+                case "to_a":
+                    to_a = cookie.getValue();
+                    break;
+                case "step_a":
+                    step_a = cookie.getValue();
+                    break;
+                case "from_b":
+                    from_b = cookie.getValue();
+                    break;
+                case "to_b":
+                    to_b = cookie.getValue();
+                    break;
+                case "step_b":
+                    step_b = cookie.getValue();
+                    break;
+                case "from_c":
+                    from_c = cookie.getValue();
+                    break;
+                case "to_c":
+                    to_c = cookie.getValue();
+                    break;
+                case "step_c":
+                    step_c = cookie.getValue();
+                    break;
+                case "from_d":
+                    from_d = cookie.getValue();
+                    break;
+                case "to_d":
+                    to_d = cookie.getValue();
+                    break;
+                case "step_d":
+                    step_d = cookie.getValue();
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
     String newValueFA = request.getParameter("from_a");
     String newValueTA = request.getParameter("to_a");
     String newValueSA = request.getParameter("step_a");
