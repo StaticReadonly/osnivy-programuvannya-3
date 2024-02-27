@@ -28,7 +28,7 @@
     String from_d = "0";
     String to_d = "0";
     String step_d = "0";
-    
+
     String newValueFA = request.getParameter("from_a");
     String newValueTA = request.getParameter("to_a");
     String newValueSA = request.getParameter("step_a");
@@ -156,23 +156,63 @@
             </button>
         </div>
     </form>
-
+    <div class="results-container">
+        <table>
+            <thead>
+            <tr>
+                <th>a</th>
+                <th>b</th>
+                <th>c</th>
+                <th>d</th>
+                <th>res</th>
+            </tr>
+            <tbody>
     <%
         if (request.getMethod().equalsIgnoreCase("post")) {
-            double from_A = Double.parseDouble(request.getParameter("from_a"));
-            double from_B = Double.parseDouble(request.getParameter("from_b"));
-            double from_C = Double.parseDouble(request.getParameter("from_c"));
-            double from_D = Double.parseDouble(request.getParameter("from_d"));
+            double from_A ;
+            double from_B ;
+            double from_C ;
+            double from_D ;
 
-            double to_A = Double.parseDouble(request.getParameter("to_a"));
-            double to_B = Double.parseDouble(request.getParameter("to_b"));
-            double to_C = Double.parseDouble(request.getParameter("to_c"));
-            double to_D = Double.parseDouble(request.getParameter("to_d"));
+            double to_A ;
+            double to_B ;
+            double to_C ;
+            double to_D ;
 
-            double step_A = Double.parseDouble(request.getParameter("step_a"));
-            double step_B = Double.parseDouble(request.getParameter("step_b"));
-            double step_C = Double.parseDouble(request.getParameter("step_c"));
-            double step_D = Double.parseDouble(request.getParameter("step_d"));
+            double step_A ;
+            double step_B ;
+            double step_C ;
+            double step_D ;
+
+            try {
+                from_A = Double.parseDouble(request.getParameter("from_a"));
+                from_B = Double.parseDouble(request.getParameter("from_b"));
+                from_C = Double.parseDouble(request.getParameter("from_c"));
+                from_D = Double.parseDouble(request.getParameter("from_d"));
+
+                to_A = Double.parseDouble(request.getParameter("to_a"));
+                to_B = Double.parseDouble(request.getParameter("to_b"));
+                to_C = Double.parseDouble(request.getParameter("to_c"));
+                to_D = Double.parseDouble(request.getParameter("to_d"));
+
+                step_A = Double.parseDouble(request.getParameter("step_a"));
+                step_B = Double.parseDouble(request.getParameter("step_b"));
+                step_C = Double.parseDouble(request.getParameter("step_c"));
+                step_D = Double.parseDouble(request.getParameter("step_d"));
+
+            }catch(NumberFormatException e){
+                response.sendError(400, "Дані введені не коректно");
+                return;
+            }
+
+            if(from_C==0 || to_C==0){
+                response.sendError(400, "Дані введені не коректно");
+                return;
+            }
+            if(from_B==0 || to_B==0){
+                response.sendError(400, "Дані введені не коректно");
+                return;
+            }
 
             for (double a = from_A; a <= to_A; a += step_A) {
                 for (double b = from_B; b <= to_B; b += step_B) {
@@ -181,24 +221,22 @@
                             double res = calculateResult( a,  b,  c,  d);
     %>
 
-    <div class="results-container">
-        <table>
-            <thead>
-            <tr>
-                <td><%= a %></td>
-                <td><%= b %></td>
-                <td><%= c %></td>
-                <td><%= d %></td>
-                <td><%= res %></td>
-            </tr>
-            </thead>
-            <%
-                                }
-                            }
-                        }
+    <tr>
+        <td><%= a %></td>
+        <td><%= b %></td>
+        <td><%= c %></td>
+        <td><%= d %></td>
+        <td><%= res %></td>
+    </tr>
+
+    <%
                     }
                 }
-            %>
+            }
+        }
+    }
+    %>
+        </tbody>
         </table>
     </div>
 </div>
