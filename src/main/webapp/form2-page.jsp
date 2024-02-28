@@ -4,10 +4,11 @@
 <%
     FormData formData = (FormData)request.getAttribute("formData");
 %>
+<%! String title = "Form 2"; %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Form 1</title>
+    <title><%=title%></title>
     <link rel="stylesheet" href="css/form.css">
 </head>
 <body>
