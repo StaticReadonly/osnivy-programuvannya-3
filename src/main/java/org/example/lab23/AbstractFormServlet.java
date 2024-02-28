@@ -11,7 +11,7 @@ import java.security.InvalidKeyException;
 import java.util.ArrayList;
 import java.util.Base64;
 
-public abstract class AbstractVladServlet extends HttpServlet{
+public abstract class AbstractFormServlet extends HttpServlet{
     protected String _path = "";
     protected String _formFile = "";
 

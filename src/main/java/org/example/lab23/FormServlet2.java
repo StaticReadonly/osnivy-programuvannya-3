@@ -3,8 +3,8 @@ package org.example.lab23;
 import jakarta.servlet.annotation.WebServlet;
 
 @WebServlet(name = "vladServlet2", value = "/form2")
-public class VladServlet2 extends AbstractVladServlet {
-    public VladServlet2(){
+public class FormServlet2 extends AbstractFormServlet {
+    public FormServlet2(){
         _formFile = "form2-page.jsp";
         _path = "/lab2_3_war_exploded/form2";
     }
